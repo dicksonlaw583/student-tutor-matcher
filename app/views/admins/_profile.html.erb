@@ -1,0 +1,16 @@
+<h3>This user is an authorized administrator.</h3>
+
+<p>
+  <b>User name:</b>
+  <%= @user.user_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+	<%= sexybutton "Send Message", new_message_url(:recipient => @user.user_name), "email" %>
+</p>
+

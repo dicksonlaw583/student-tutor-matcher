@@ -1,0 +1,117 @@
+#header {
+	padding: 8px;
+	margin-bottom: 8px;
+}
+
+#header #title {
+	float: left;
+}
+
+#header #title #logo {
+	width: 64px;
+	height: 64px;
+}
+
+#header #title h1 {
+	display: inline;
+	margin-left: 1em;
+}
+
+#header #login-status {
+	float: right;
+	width: 25%;
+	padding: 4px;
+}
+
+#message_notice, #message_error {
+	padding: 6px;
+	margin-bottom: 12px;
+	text-align: center;
+}
+
+#message_notice {
+	background-color: #9f9;
+}
+
+#message_error {
+	background-color: #f99;
+}
+
+#nav ul {
+	display: block;
+	background-color: #004;
+	padding: 6px 6px;
+}
+
+#nav ul li {
+	display: inline;
+	padding: 6px 0;
+	margin-left: 0 !important;
+}
+
+#nav ul li a {
+	color: #fff;
+	text-decoration: none;
+	padding: 6px;
+}
+
+#nav ul li a:hover {
+	background-color: #448;
+}
+
+#footer {
+	border-top: 1px solid #000;
+	margin-top: 8px;
+	padding: 8px;
+}
+
+label {
+	margin-right: 4px;
+}
+
+input {
+	
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.emphasis {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.portrait {
+	width: 128px;
+	height: 128px;
+}
+
+.vspaced {
+	height: 6px;
+}
+
+.table_design {
+	border: 1px solid black;
+	width: 100%;
+}
+.table_design thead tr th {
+	border: none;
+	background-color: #000088;
+	color: #ffffff;
+	padding: 5px;
+}
+.table_design tbody tr td {
+	background-color: #ffffff;
+	padding: 5px;
+}
+.table_design tbody tr:nth-child(even) td {
+	background-color: #9999ff;
+}
+
+#message_nav {
+	margin-bottom: 12px;
+}

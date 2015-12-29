@@ -1,0 +1,8 @@
+<div id="nav" class="container_12">
+	<ul>
+		<li><%= link_to "Home", current_user %></li>
+		<li><%= link_to "Edit My Profile", edit_user_path(current_user) %></li>
+		<li><%= link_to "Add/Widthdraw a Course", courses_path %></li>
+		<li><%= link_to "Message Box (#{current_user.unread_messages.count})", messages_url %></li>
+	</ul>
+</div>

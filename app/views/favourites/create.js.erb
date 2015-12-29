@@ -1,0 +1,1 @@
+$("a#favourite<%= @user.id %>").replaceWith("<%= escape_javascript(render :partial => "unmark_as_favourite") %>");

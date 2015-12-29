@@ -1,0 +1,9 @@
+<h3>Edit Course Offering</h3>
+<%= form_for @offering do |f| %>
+	<p>Course Code: <%= @offering.course.course_code %></p>
+	<div id="field">
+		<%= f.label :price %>
+		<%= f.number_field :price %>
+	</div>
+	<%= f.submit %>
+<% end %>

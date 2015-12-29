@@ -1,0 +1,32 @@
+<h1>My Offered Courses</h1>
+
+<% if @offerings.blank? %>
+	<p>You currently offer no courses.</p>
+<% else %>
+	<table class="table_design">
+		<thead>
+			<tr>
+				<th>Course Code</th>
+				<th>Course Name</th>
+				<th>Rate</th>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @offerings.each do |offer| %>
+				<tr>
+					<td><%= offer.course.course_code %></td>
+					<td><%= offer.course.name %></td>
+					<td><%= offer.price %></td>
+					<td><%= sexybutton "Change", edit_offering_path(offer), "edit" %></td>
+					<td><%= sexybutton "Withdraw", offering_path(offer), "delete", :method => :delete %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>
+
+<% unless @courses.blank? %>
+	<%= sexybutton "Offer New Course", new_offering_path, "add" %>
+<% end %>

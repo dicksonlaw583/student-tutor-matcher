@@ -1,0 +1,48 @@
+<p>
+  <b>User name:</b>
+  <%= @user.user_name %>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @user.address %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @user.phone %>
+</p>
+
+<p>
+  <b>Program:</b>
+  <%= @user.program %>
+</p>
+
+<p>
+  <b>Contact method:</b>
+  <%= @user.contact_method %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%= @user.year %>
+</p>
+
+<p>
+  <%= sexybutton "Send Message", new_message_url(:recipient => @user.user_name), "email" %>
+</p>

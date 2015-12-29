@@ -1,0 +1,109 @@
+<div class="grid_4">
+  <p>
+    <b>User name:</b>
+    <%= @user.user_name %>
+  </p>
+
+  <p>
+    <b>First name:</b>
+    <%= @user.first_name %>
+  </p>
+
+  <p>
+    <b>Last name:</b>
+    <%= @user.last_name %>
+  </p>
+
+  <p>
+    <b>Email:</b>
+    <%= @user.email %>
+  </p>
+
+  <p>
+    <b>Address:</b>
+    <%= @user.address %>
+  </p>
+
+  <p>
+    <b>Phone:</b>
+    <%= @user.phone %>
+  </p>
+
+  <p>
+    <b>Location:</b>
+    <%= @user.location.name %>
+  </p>
+
+  <p>
+    <b>Cgpa:</b>
+    <%= @user.cgpa %>
+  </p>
+
+  <p>
+    <b>Education level:</b>
+    <%= @user.education_level %>
+  </p>
+
+  <p>
+    <b>Contact method:</b>
+    <%= @user.contact_method %>
+  </p>
+
+  <p>
+    <b>Personal description:</b>
+    <%= @user.personal_description %>
+  </p>
+
+</div>
+
+<div class="grid_4">
+  <p>Rating: <%= @user.rating %> (<%= pluralize(@user.received_ratings.count, "ratings") %>)</p>
+  <% if @user.received_ratings.find_by_rating_user_id(current_user.id).nil? && current_user.role.name != "tutor" %>
+    <%= form_for :rating, :url => ratings_path do |f| %>
+        <p>
+          Rate this tutor:
+          <%= f.hidden_field :rated_user_id, :value => @user.id %>
+          <%= f.radio_button :amount, 1 %><%= f.label "1" %>
+          <%= f.radio_button :amount, 2 %><%= f.label "2" %>
+          <%= f.radio_button :amount, 3 %><%= f.label "3" %>
+          <%= f.radio_button :amount, 4 %><%= f.label "4" %>
+          <%= f.radio_button :amount, 5 %><%= f.label "5" %>
+        </p>
+        <p>
+          <%= f.label :comment %><br />
+          <%= f.text_area :comment, :rows => 4, :cols => 30, :style => "resize:none;" %>
+        </p>
+        <p>
+          <%= f.submit "Rate!" %>
+        </p>
+    <% end %>
+  <% end %>
+
+  <% if current_user.is?(:student) %>
+    <p>
+      <% if current_user.favourite_tutors.include?(@user) %>
+        <%= render :partial => "favourites/unmark_as_favourite" %>
+      <% else %>
+        <%= render :partial => "favourites/mark_as_favourite" %>
+      <% end %>
+    </p>
+  <% end %>
+  <p>
+    <%= sexybutton "Send Message", new_message_url(:recipient => @user.user_name), "email" %>
+  </p>
+</div>
+
+<div class="grid_4">
+  <b>Recent Ratings</b>
+  <p>
+    <% if @user.received_ratings.blank? %>
+      This tutor has yet to be rated.
+    <% else %>
+      <% @user.received_ratings[0..3].each do |r| %>
+        From <%= link_to r.rating_user.user_name, r.rating_user %>:<br />
+        <%= (r.comment.blank?) ? h("<i>No comment.</i>") : r.comment %><br />
+        Rating: <%= r.amount %>
+      <% end %>
+    <% end %>
+  </p>
+</div>

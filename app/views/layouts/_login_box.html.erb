@@ -1,0 +1,7 @@
+<div id="login-status">
+	<% if signed_in? %>
+		<%= current_user.user_name %> (<%= current_user.role.name.humanize %>)<br /><%= sexybutton "Logout", signout_path, "home", :method => :delete %>
+	<% else %>
+		<!-- Guest, please <%= link_to "login", signin_path %> or <%= link_to "register", new_user_path %> to enjoy our full features. -->
+	<% end %>
+</div>

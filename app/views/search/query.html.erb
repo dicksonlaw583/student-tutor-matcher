@@ -1,0 +1,36 @@
+<h1>Search Results</h1>
+
+<% if @offers.blank? %>
+  <p>No results were found. Try a more general query.</p>
+  <p>
+    <%= render :partial => "search/form" %>
+  </p>
+<% else %>
+  <table class="table_design">
+    <thead>
+      <tr>
+        <th>Course code</th>
+        <th>Name</th>
+        <th>Professor</th>
+        <th>Tutor</th>
+        <th>Price</th>
+        <th>Location</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @offers.each do |offer| %>
+        <tr>
+          <td><%= link_to offer.course.course_code, offer.course %></td>
+          <td><%= offer.course.name %></td>
+          <td><%= offer.course.professor_name %></td>
+          <td><%= link_to offer.user.user_name, offer.user %></td>
+          <td><%= offer.price %></td>
+          <td><%= offer.user.location.name %></td>
+          <td><%= offer.course.description %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

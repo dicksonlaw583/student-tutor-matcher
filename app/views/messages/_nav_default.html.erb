@@ -1,0 +1,5 @@
+<div id="message_nav">
+	<%= sexybutton "Inbox (#{current_user.unread_messages.count})", messages_url, "email" %>
+	<%= sexybutton "All mail (#{current_user.received_messages.count})", messages_all_url, "email_open" %>
+	<%= sexybutton "Compose message", new_message_url, "edit" %>
+</div>

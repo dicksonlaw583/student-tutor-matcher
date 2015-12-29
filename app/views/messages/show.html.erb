@@ -1,0 +1,11 @@
+<%= render :partial => "nav_default" %>
+
+<h1>Reading message: <%= @message.subject %></h1>
+<p>
+  From: <%= link_to @message.sender.user_name, @message.sender %>
+</p>
+<p>
+  <%= @message.body %>
+</p>
+<p>
+</p>

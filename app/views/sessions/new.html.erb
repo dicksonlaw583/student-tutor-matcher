@@ -1,0 +1,38 @@
+<div id="register-now" class="grid_8">
+	<h2 class="center emphasis">Register Now</h2>
+	<div class="clear"></div>
+	<div class="grid_4 alpha">
+		<%= image_tag "tutor_sample.png", :class => "center portrait" %>
+		<h4 class="center">As a tutor...</h4>
+		<ul>
+			<li>Earn extra cash</li>
+			<li>Strengthen your learning</li>
+			<li>Build your resume</li>
+			<li>Help fellow students</li>
+		</ul>
+		<%= sexybutton "Sign up", signup_path(:type => :tutor), "user" %>
+	</div>
+	<div class="grid_4 omega">
+		<%= image_tag "student_sample.jpg", :class => "center portrait" %>
+		<h4 class="center">As a student...</h4>
+		<ul>
+			<li>Help from senior students</li>
+			<li>Choose your time and location</li>
+			<li>Get feedback from other students on tutors</li>
+			<li>Communicate privately with your tutors</li>
+		</ul>
+		<%= sexybutton "Sign up", signup_path(:type => :student), "user" %>
+	</div>
+</div>
+<div id="login" class="grid_4">
+	<h2 class="center">Login</h2>
+	<%= form_for(:session, :url => sessions_path, :class => "center") do |f| %>
+		<%= f.label :user_name, "Username", :class => "grid_1 alpha omega" %>
+		<%= f.text_field :user_name, :class => "grid_3 omega" %>
+		<br class="clear vspaced" />
+		<%= f.label :password, :class => "grid_1 alpha omega" %>
+		<%= f.password_field :password, :class => "grid_3 omega" %>
+		<br class="clear vspaced" />
+		<%= f.submit "Sign in", :class => "center" %>
+	<% end %>
+</div>

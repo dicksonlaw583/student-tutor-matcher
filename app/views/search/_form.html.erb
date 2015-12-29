@@ -1,0 +1,19 @@
+<%= form_tag search_results_path do %>
+  <div id="field">
+    <%= label_tag :course %><br />
+    <%= text_field_tag :course, @form[:course] %>
+  </div>
+  <div id="field">
+    <%= label_tag :price %><br />
+    <%= number_field_tag :price, @form[:price] %>
+  </div>
+  <div id="field">
+    <%= label_tag :professor_name %><br />
+    <%= text_field_tag :professor_name, @form[:professor_name] %>
+  </div>
+  <div id="field">
+    <%= label_tag :location_id, "Location" %><br />
+    <%= select_tag :location_id, options_from_collection_for_select(Location.all, :id, :name, @form[:location_id]), { :include_blank => "",  } %>
+  </div>
+  <%= submit_tag "Search" %>
+<% end %>

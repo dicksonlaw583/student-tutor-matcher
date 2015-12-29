@@ -1,0 +1,33 @@
+<h1>My Favourite Tutors</h1>
+
+<% if @favourite_tutors.blank? %>
+  <p>You currently have no favourite tutors.</p>
+<% else %>
+  <table class="table_design">
+    <thead>
+      <tr>
+        <th>User name</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Location</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @favourite_tutors.each do |tutor| %>
+        <tr>
+          <td><%= link_to tutor.user_name, tutor %></td>
+          <td><%= tutor.first_name %></td>
+          <td><%= tutor.last_name %></td>
+          <td><%= tutor.location.name %></td>
+          <td><%= tutor.email %></td>
+          <td><%= tutor.phone %></td>
+          <td><%= sexybutton "Remove", unlike_path(:tutor_id => tutor.id), "delete", :method => :delete, :confirm => "Are you sure?" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

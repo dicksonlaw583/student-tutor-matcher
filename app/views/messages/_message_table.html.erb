@@ -1,0 +1,31 @@
+<table class="table_design">
+  <thead>
+    <tr>
+      <th>From</th>
+      <th>Subject</th>
+      <th>Received on</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @messages.each do |message| %>
+      <tr>
+        <td><%= message.sender.user_name %></td>
+        <td><%= message.subject %></td>
+        <td><%= message.created_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
+        <td><%= sexybutton 'Read', message, "search" %></td>
+        <td>
+        	<% if message.read %>
+        		<%= sexybutton 'Unmark', unread_path(:id => message.id), "email", method: :put %>
+        	<% else %>
+        		<%= sexybutton 'Mark', read_path(:id => message.id), "email_open", method: :put %>
+    		<% end %>
+    	</td>
+        <td><%= sexybutton 'Delete', message, "delete", confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

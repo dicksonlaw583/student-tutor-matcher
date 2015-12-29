@@ -1,0 +1,13 @@
+<h3>New Course Offering</h3>
+<%= form_for @offering do |f| %>
+	<div id="field">
+		<%= f.label "Course Code", :for => :course_id %>
+		<%= f.select(:course_id, @courses.collect { |c| [c.course_code, c.id] }) %>
+	</div>
+	<div id="field">
+		<%= f.label :price %>
+		<%= f.number_field :price %>
+	</div>
+	<%= f.submit "Create New Offering" %>
+<% end %>
+<%= sexybutton "Back", offerings_url, "undo" %>
